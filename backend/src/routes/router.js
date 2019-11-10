@@ -14,7 +14,7 @@ router.post('/login', login)
 //RUTAS USUARIOS
 router.get('/users', veryjwt, alluser);
 router.get('/users/:id', veryjwt, oneuser);
-router.post('/users', veryjwt, insertuser);
+router.post('/users', insertuser);
 router.put('/users/:id', veryjwt, updateuser);
 router.delete('/users/:id', veryjwt, deleteuser);
 
