@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Map extends Component {
+export default class Login extends Component {
     render() {
         return (
             <div>
-                MAP
+                LOGIN
             </div>
         )
     }

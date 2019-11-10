@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Map from 'Map'
 
-export default class Map extends Component {
+export default class Inicio extends Component {
     render() {
         return (
             <div>
-                MAP
+                <Map/>
             </div>
         )
     }
