@@ -13,8 +13,8 @@ module.exports = {
     },
 
     insertuser: async (req, res, next) => {
-        const { nombre, password } = req.body;
-        const user = new User ({ nombre, password });
+        const { nombre, password, coordenadas } = req.body;
+        const user = new User ({ nombre, password, coordenadas });
         
         user.password = await user.encryptPassword(user.password);
 

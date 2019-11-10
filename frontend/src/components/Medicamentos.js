@@ -6,7 +6,6 @@ export default class Medicamentos extends Component {
         return (
             <div>
                 <h1 className="center-align"> MEDICAMENTOS </h1>
-
             </div>
         )
     }

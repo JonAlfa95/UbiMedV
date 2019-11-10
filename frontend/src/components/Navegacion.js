@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from './ubimed-logo.png'
 
 export default class Navegacion extends Component {
     render() {
         return (
             <div>
-            <nav className="navbar-fixed">
+            <nav className="navbar-fixed teal lighten-1">
                 <div className="container">
                     <div className="nav-wrapper">
-                            <NavLink className="brand-logo" to="/">UBIMED</NavLink>
+                            <NavLink className="brand-logo" to="/">UbiMed</NavLink>
                             <a href="/" className="sidenav-trigger" data-target="menuresponsive">
                             <i className="material-icons">menu</i>
                             </a>

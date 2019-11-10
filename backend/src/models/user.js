@@ -1,7 +1,6 @@
 //OBTENIENDO LA CLAVE DE ENCRIPTACION 
 const mongoose = require('mongoose');
 
-//
 const { Schema } = mongoose;
 
 //MODULO PARA REALIZAR LA ENCRIPTACION 
@@ -10,8 +9,20 @@ const bcrypt = require('bcryptjs')
 const UserSchema = new Schema({
     nombre: { type: String, required: true },
     password: { type: String, required: true },
+    coordenadas: [
+        {
+            lat: String
+        },
+        {
+            lng: String
+        }
+    ],
     signupDate: { type: Date, default: Date.now() },
     lastLogin: Date,
+    medi: [{
+        type: Schema.Types.ObjectId,
+        ref: 'medi'
+    }]
     
 });
 
