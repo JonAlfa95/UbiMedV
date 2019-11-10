@@ -1,23 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+
+import 'materialize-css/dist/css/materialize.min.css';
 
 import Navegacion from './components/Navegacion';
-import Inicio from './components/Inicio';
+import Index from './components/Index';
+import Medicamentos from './components/Medicamentos'
 import Login from './components/Login';
-import Admin from './components/Admin';
 
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <Navegacion/>
-      
-      <Route to="/" component={ Inicio } />
-      <Route to="/Login" component={ Login } />
-      <Route to="/Admin" component={ Admin } />
 
+      <Navegacion/>
+
+      <Route path="/" exact component={Index} />
+      <Route path="/Login" exact component={Login} />
+      <Route path="/Medicamentos" exact component={Medicamentos} />
+      
     </Router>
+
   );
 }
 
