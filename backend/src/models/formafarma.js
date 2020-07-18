@@ -3,11 +3,7 @@ const { Schema } = mongoose;
 
 const formaFarmaSchema = new Schema({
     nombre: { type: String, required: true },
-    descripcion: { type: String, required: true },
-    medi: [{ 
-        type: Schema.Types.ObjectId,
-        ref: 'medi'
-        }]
+    descripcion: { type: String, required: true }
 });
 
 module.exports = mongoose.model('formaFarma', formaFarmaSchema);

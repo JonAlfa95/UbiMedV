@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Medi = require('../models/medi')
 
 module.exports = {
 
@@ -32,6 +33,22 @@ module.exports = {
     deleteuser: async (req, res, next) => {
         await User.findByIdAndRemove(req.params.id);
         res.json({status: 'Usuario Eliminado'});
-    }
+    },
 
+    allmedicsuser: async (req, res, next) => {
+        const { id } = req.params;
+        const user = await User.findById(id).populate('medics');
+        res.json(user);
+    },
+
+    insertmedicsuser: async (req, res, next) => {
+        const { id } = req.params;
+        const newmedi = new Medi(req.body);
+        const user = await User.findById(id);
+        newmedi.user = user;
+        await newmedi.save();
+        user.medics.push(newmedi);
+        await user.save();
+        res.json(newmedi);
+    }
 };

@@ -9,17 +9,13 @@ const bcrypt = require('bcryptjs')
 const UserSchema = new Schema({
     nombre: { type: String, required: true },
     password: { type: String, required: true },
-    coordenadas: [
-        {
-            lat: String
-        },
-        {
-            lng: String
-        }
-    ],
+    coordenadas: {
+        lat: { type: Number, required: true},
+        lan: { type: Number, required: true}
+    },
     signupDate: { type: Date, default: Date.now() },
     lastLogin: Date,
-    medi: [{
+    medics: [{
         type: Schema.Types.ObjectId,
         ref: 'medi'
     }]

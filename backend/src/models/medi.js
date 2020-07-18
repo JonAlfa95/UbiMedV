@@ -5,11 +5,15 @@ const medicSchema = new Schema({
     nombre: { type: String, required: true },
     prospecto: { type: String, require: true},
     existencia: { type: Boolean, required: true },
-    formafarma: [{ 
+    laboratorio: { type: String, require: true},
+    formafarma: { 
         type: Schema.Types.ObjectId,
         ref: 'formafarma'
-        }],
-    laboratorio: { type: String, require: true}
+        },
+    user: { 
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+        }
 });
 
-module.exports = mongoose.model('medic', medicSchema);
+module.exports = mongoose.model('medics', medicSchema);
