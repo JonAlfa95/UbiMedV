@@ -1,0 +1,30 @@
+[
+    {
+        "nombre": "Farmacia Jerusalen #1",
+        "coordenadas": {
+            "latitude": 13.488150, 
+            "longitude": -86.581412
+        }
+    },
+    {
+        "nombre": "Farmacia del Pueblog",
+        "coordenadas": {
+            "latitude": 13.481676, 
+            "longitude": -86.582083
+        }
+    },
+    {
+        "nombre": "Farmacia San Jose",
+        "coordenadas": {
+            "latitude": 13.482224, 
+            "longitude": -86.582131
+        }
+    },
+    {
+        "nombre": "Farmacia San Jose",
+        "coordenadas": {
+            "latitude": 13.482511, 
+            "longitude": -86.582319
+        }
+    }
+]
