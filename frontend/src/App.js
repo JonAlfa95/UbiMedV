@@ -5,11 +5,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 import Navegacion from './components/Navegacion';
 import Index from './components/Index';
-import Medicamentos from './components/Medicamentos'
+import Medicamentos from './components/Medicamentos';
 import Login from './components/Login';
-
-
-import './App.css';
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Logo from './ubimed-logo.png'
+import { Link } from 'react-router-dom';
 
 export default class Navegacion extends Component {
     render() {
@@ -9,22 +8,22 @@ export default class Navegacion extends Component {
             <nav className="navbar-fixed teal lighten-1">
                 <div className="container">
                     <div className="nav-wrapper">
-                            <NavLink className="brand-logo" to="/">UbiMed</NavLink>
+                        <Link className="brand-logo" to="/">UbiMed</Link>
                             <a href="/" className="sidenav-trigger" data-target="menuresponsive">
                             <i className="material-icons">menu</i>
                             </a>
                             
                         <ul className="right hide-on-med-and-down">
-                            <li><NavLink to="/Medicamentos">Medicamentos</NavLink></li>
-                            <li><NavLink to="/Login">Login</NavLink></li>
+                            <li><Link to="/Medicamentos">Medicamentos</Link></li>
+                            <li><Link to="/Login">Login</Link></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <ul className="sidenav" id="menuresponsive">
-                <li><NavLink to="/">Inicio</NavLink></li>
-                <li><NavLink to="/Medicamentos">Aprende mas</NavLink></li>
-                <li><NavLink to="/Login">Login</NavLink></li>
+                <li><Link to="/">Inicio</Link></li>
+                <li><Link to="/Medicamentos">Aprende mas</Link></li>
+                <li><Link to="/Login">Login</Link></li>
             </ul>
         </div>
         )
