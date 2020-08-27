@@ -1,0 +1,27 @@
+body{
+    overflow-x: hidden;
+    background-image: url(./img/tapiz.jpeg);
+    background-size: 430px;
+}
+
+body::-webkit-scrollbar{
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #1de9b6;
+    border-radius: 5px;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vh;
+    height: 100vh;
+    background: #1de9b6;
+    border-radius: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) translateY(-30%) scale(3);
+}

@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 
+///////////////////////////
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+//////////////////////////
+
 import { Map, Marker, TileLayer, Popup} from 'react-leaflet';
 import { Icon } from 'leaflet';
 
-import useCurrentLocation from '../hooks/useCurrentLocation'
+import useCurrentLocation from '../hooks/useCurrentLocation';
 
 import '../css/Mapa.css';
 
@@ -19,12 +24,33 @@ const geoLocationOptions = {
 }
 
 const Mapa = () => {
+
+/////////////////
+
+const [items, setItems] = useState([])
+
+useEffect( () => {
+  const getFarmacias = async () => {
+    const result = await axios(
+      'http://localhost:4000/users'
+    )
+
+    console.log(result.data)
+    setItems(result.data)
+  }
+
+  getFarmacias()
+}, [] )
+
+/////////////////
+
   const { location, error } = useCurrentLocation(geoLocationOptions)
   console.log({location})
   
   if (error) {
     console.log(`Error de Localizacion: ${error}`)
   }
+  
 
   return (
     <Fragment>
@@ -45,6 +71,18 @@ const Mapa = () => {
           ) : (
             <Marker position = {[ 13.4808197, -86.582077 ]} />
           ) }
+
+          { items.map(i => (
+              <Marker 
+                key = {i._id}
+                position = {[ i.coordenadas.lat, i.coordenadas.lan ]} 
+                icon = { userIcon } 
+                onClick = { () => {
+                
+              }}
+            />
+            ))
+          }
 
         </Map>
     </Fragment>

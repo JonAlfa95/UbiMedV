@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Navegacion extends Component {
-    render() {
-        return (
-            <div>
-            <nav className="navbar-fixed teal lighten-1">
+const Navegacion = () => {
+    return ( 
+        <Fragment>
+            <nav className="navbar-fixed teal accent-3">
                 <div className="container">
                     <div className="nav-wrapper">
                         <Link className="brand-logo" to="/">UbiMed</Link>
@@ -15,7 +14,7 @@ export default class Navegacion extends Component {
                             
                         <ul className="right hide-on-med-and-down">
                             <li><Link to="/Medicamentos">Medicamentos</Link></li>
-                            <li><Link to="/Login">Login</Link></li>
+                            <li><Link to="/Users">Usuarios</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -23,9 +22,10 @@ export default class Navegacion extends Component {
             <ul className="sidenav" id="menuresponsive">
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/Medicamentos">Aprende mas</Link></li>
-                <li><Link to="/Login">Login</Link></li>
+                <li><Link to="/Users">Usuarios</Link></li>
             </ul>
-        </div>
-        )
-    }
+        </Fragment>
+     );
 }
+ 
+export default Navegacion;

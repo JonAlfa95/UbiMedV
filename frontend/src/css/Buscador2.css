@@ -1,0 +1,8 @@
+.radius {
+    border-radius: 50px;
+}
+
+.lupa{
+    float: right;
+    display: flex;
+}
