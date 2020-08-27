@@ -6,6 +6,7 @@ const medicSchema = new Schema({
     prospecto: { type: String, require: true},
     existencia: { type: Boolean, required: true },
     laboratorio: { type: String, require: true},
+    precio: { type: String, require: true},
     formafarma: { 
         type: Schema.Types.ObjectId,
         ref: 'formafarma'

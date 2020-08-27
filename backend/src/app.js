@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
+const multer = require('multer');
 const cors = require('cors');
+const path = require('path');
 
 require('path');
 
@@ -14,8 +16,6 @@ const clave = require('./config');
 const routes = require('./routes/router');
 
 //CONFIGURACIONES
-//INICIALIZANDO VARIABLE DEL PUERTO
-app.set('port', process.env.PORT || 4000);
 //INICIALIZANDO LA VARIABLE DE ENCRIPTACION 
 app.set('tokenSecreto', clave.secret);
 
@@ -23,13 +23,19 @@ app.set('tokenSecreto', clave.secret);
 app.use(morgan('dev'));
 
 app.use(express.json());
+app.use(express.urlencoded({extended: false}))
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/uploads'),
+    filename: (req, file, cb) => {
+        cb(null, new Date().getTime() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage}).single('imagen'));
+
 //MODULO PARA PERMITIR LA CONEXION ENTRE 2 SERVIDORES
 app.use(cors({origin: 'http://localhost:3000'}))
 
 //RUTAS
 app.use('/', routes);
 
-//INICIANDO SERVIDOR
-app.listen(app.get('port'), () => {
-    console.log('servidor en el puerto', app.get('port'));
-});
+module.exports = app

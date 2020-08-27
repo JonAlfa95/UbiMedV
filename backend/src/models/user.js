@@ -9,17 +9,18 @@ const bcrypt = require('bcryptjs')
 const UserSchema = new Schema({
     nombre: { type: String, required: true },
     password: { type: String, required: true },
+    tipo: { type: String, required: true},
     coordenadas: {
-        lat: { type: Number, required: true},
-        lan: { type: Number, required: true}
+        lat: { type: Number, required: true },
+        lon: { type: Number, required: true }
     },
     signupDate: { type: Date, default: Date.now() },
     lastLogin: Date,
-    medics: [{
-        type: Schema.Types.ObjectId,
-        ref: 'medi'
-    }]
-    
+    medicamentos: [{
+        nombre: { type: String, required: true },
+        ff: { type: String, required: true }
+    }],
+    imageURL: { type: String, requeride: true}
 });
 
     //ENCRIPTANDO LA CONTRASEÑA 

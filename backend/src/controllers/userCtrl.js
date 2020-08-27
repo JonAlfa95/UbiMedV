@@ -14,8 +14,8 @@ module.exports = {
     },
 
     insertuser: async (req, res, next) => {
-        const { nombre, password, coordenadas } = req.body;
-        const user = new User ({ nombre, password, coordenadas });
+        const { name, password, tipo, coordenadas, image } = req.body;
+        const user = new User ({ nombre: name, password, tipo, coordenadas, imageURL: image });
         
         user.password = await user.encryptPassword(user.password);
 
@@ -35,20 +35,26 @@ module.exports = {
         res.json({status: 'Usuario Eliminado'});
     },
 
-    allmedicsuser: async (req, res, next) => {
-        const { id } = req.params;
-        const user = await User.findById(id).populate('medics');
-        res.json(user);
-    },
-
-    insertmedicsuser: async (req, res, next) => {
-        const { id } = req.params;
-        const newmedi = new Medi(req.body);
-        const user = await User.findById(id);
-        newmedi.user = user;
-        await newmedi.save();
-        user.medics.push(newmedi);
-        await user.save();
-        res.json(newmedi);
+    Busqueda: async (req, res, next) => {
+        const userRegex = new RegExp(req.query.nombre, 'i')
+        const users = await User.find({ "medicamentos.nombre": userRegex })
+        res.json(users)
     }
+
+    //allmedicsuser: async (req, res, next) => {
+        //const { id } = req.params;
+        //const user = await User.findById(id).populate('medics');
+        //res.json(user);
+    //},
+
+    //insertmedicsuser: async (req, res, next) => {
+        //const { id } = req.params;
+        //const newmedi = new Medi(req.body);
+        //const user = await User.findById(id);
+        //newmedi.user = user;
+        //await newmedi.save();
+        //user.medics.push(newmedi);
+        //await user.save();
+        //res.json(newmedi);
+    //}
 };
